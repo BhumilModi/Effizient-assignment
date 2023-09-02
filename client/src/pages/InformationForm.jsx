@@ -28,6 +28,8 @@ function InformationForm() {
         .then(() => nav("/thank-you"));
     } catch (error) {
       console.error("Error:", error);
+      setIsLoading(true);
+      alert("Something went wrong, Please try again");
     }
   };
 

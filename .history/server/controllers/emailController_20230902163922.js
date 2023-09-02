@@ -52,7 +52,7 @@ const sendEmail = async (req, res) => {
 
   sendgrid.send(mailOptions, (error) => {
     if (error) {
-      console.log(error.response.body)
+      console.log(error)
       res.status(500).json({ message: "Email undelivered" });
     } else {
       res.status(200).json({ message: "Email sent successfully" });
