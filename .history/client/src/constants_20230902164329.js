@@ -1,1 +1,0 @@
-export const BASE_URL = "https://effizient-sop-service.onrender.com"
