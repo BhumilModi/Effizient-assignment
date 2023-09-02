@@ -10,12 +10,12 @@ function Loader() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "80vh",
+        height: "100vh",
         flexDirection: "column",
       }}
     >
       <CircularProgress />
-      <Typography fontSize="24px" my={3}>
+      <Typography fontSize="24px">
         Please wait we are preparing a customized SOP for you.
       </Typography>
     </Box>
