@@ -1,5 +1,4 @@
 const sendgrid = require("@sendgrid/mail");
-const { SENDGRID_API_KEY, EMAIL_SENDER, SENDGRID_TEMPLATE_ID } = require("../constants");
 
 const sendEmail = async (req, res) => {
   let emailBody = "";
@@ -8,14 +7,14 @@ const sendEmail = async (req, res) => {
     emailBody += e[0] + " : " + e[1] + "\n";
   });
 
-  sendgrid.setApiKey(SENDGRID_API_KEY);
+  sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
   // Email content
   const mailOptions = {
-    from: EMAIL_SENDER, // Sender email address
+    from: process.env.EMAIL_SENDER, // Sender email address
     to: req.body.email, // Recipient email address
     cc: "",
-    templateId: SENDGRID_TEMPLATE_ID,
+    templateId: process.env.SENDGRID_TEMPLATE_ID,
     dynamicTemplateData: {
       subject: `Statement of Purpose Response by ${req.body.firstName} ${req.body.lastName}`, // Email subject
       firstName: req.body.firstName,
@@ -35,6 +34,7 @@ const sendEmail = async (req, res) => {
 
   sendgrid.send(mailOptions, (error) => {
     if (error) {
+      console.log(error.response.body)
       res.status(500).json({ message: "Email undelivered" });
     } else {
       res.status(200).json({ message: "Email sent successfully" });
