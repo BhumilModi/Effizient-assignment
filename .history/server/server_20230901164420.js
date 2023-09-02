@@ -2,11 +2,10 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const cors = require('cors');
 const emailRoute = require("./routes/emailRoute");
-const { SERVER_PORT } = require("./constants");
 
 const app = express();
 
-const port = SERVER_PORT;
+const port = process.env.SERVER_PORT || 5000;
 
 app.listen(port, () => {
   console.log("Server listening on port : " + port);

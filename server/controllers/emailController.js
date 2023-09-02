@@ -1,5 +1,5 @@
 const sendgrid = require("@sendgrid/mail");
-const EMAIL_SENDER = require("../constants");
+const { SENDGRID_API_KEY, EMAIL_SENDER, SENDGRID_TEMPLATE_ID } = require("../constants");
 
 const sendEmail = async (req, res) => {
   let emailBody = "";
@@ -8,14 +8,14 @@ const sendEmail = async (req, res) => {
     emailBody += e[0] + " : " + e[1] + "\n";
   });
 
-  sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+  sendgrid.setApiKey(SENDGRID_API_KEY);
 
   // Email content
   const mailOptions = {
     from: EMAIL_SENDER, // Sender email address
     to: req.body.email, // Recipient email address
     cc: "",
-    templateId: "d-dd1fae65a9924af3b74b1101d6086f2e",
+    templateId: SENDGRID_TEMPLATE_ID,
     dynamicTemplateData: {
       subject: `Statement of Purpose Response by ${req.body.firstName} ${req.body.lastName}`, // Email subject
       firstName: req.body.firstName,

@@ -1,3 +1,6 @@
 const EMAIL_SENDER = "bhumilmodi2002@gmail.com";
+const SERVER_PORT = 8080
+const SENDGRID_API_KEY = "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"
+const SENDGRID_TEMPLATE_ID = "d-dd1fae65a9924af3b74b1101d6086f2e"
 
-module.exports = EMAIL_SENDER
+module.exports = { EMAIL_SENDER, SERVER_PORT, SENDGRID_API_KEY, SENDGRID_TEMPLATE_ID }

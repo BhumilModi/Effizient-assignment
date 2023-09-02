@@ -7,7 +7,6 @@ import AdditionalInfoSection from "../components/AdditionalInfoSection";
 import Loader from "../components/Loader";
 import PersonalInfoSection from "../components/PersonalInfoSection";
 import WorkExperienceSection from "../components/WorkExperienceSection";
-import {BASE_URL} from "../constants";
 
 function InformationForm() {
   const nav = useNavigate();
@@ -24,7 +23,7 @@ function InformationForm() {
     setIsLoading(true);
     try {
       await axios
-        .post(BASE_URL + "/submit", data)
+        .post(process.env.REACT_APP_BASE_URL + "/submit", data)
         .then(() => nav("/thank-you"));
     } catch (error) {
       console.error("Error:", error);
