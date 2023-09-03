@@ -5,12 +5,15 @@ import {
   Stack,
   TextField,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import React, {useState} from "react";
 
 export default function AdditionalInfoSection({errors, register, setValue}) {
   const [feesPaid, setFeesPaid] = useState("");
   const [gic, setGic] = useState("");
+
+  const matches = useMediaQuery("(max-width: 600px)");
 
   const handleFeesChange = (event) => {
     setValue("isFeesPaid", event.target.value);
@@ -95,7 +98,7 @@ export default function AdditionalInfoSection({errors, register, setValue}) {
         />
       </Stack>
       <Stack direction="row" gap="2%" flexWrap="wrap" width="100%">
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "70%" : "49%"} my={1.5}>
           <Typography mb={2}>English Scores - Listening</Typography>
           <TextField
             variant="standard"
@@ -111,7 +114,7 @@ export default function AdditionalInfoSection({errors, register, setValue}) {
             helperText={errors.listeningScore?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "70%" : "49%"} my={1.5}>
           <Typography mb={2}>English Scores - Reading</Typography>
           <TextField
             variant="standard"
@@ -127,7 +130,7 @@ export default function AdditionalInfoSection({errors, register, setValue}) {
             helperText={errors.readingScore?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "70%" : "49%"} my={1.5}>
           <Typography mb={2}>English Scores - Speaking</Typography>
           <TextField
             variant="standard"
@@ -143,7 +146,7 @@ export default function AdditionalInfoSection({errors, register, setValue}) {
             helperText={errors.speakingScore?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "70%" : "49%"} my={1.5}>
           <Typography mb={2}>English Scores - Writing</Typography>
           <TextField
             variant="standard"
@@ -159,7 +162,7 @@ export default function AdditionalInfoSection({errors, register, setValue}) {
             helperText={errors.writtingScore?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "70%" : "49%"} my={1.5}>
           <Typography mb={1}>Did you pay your first year tuition?</Typography>
           <RadioGroup
             name="controlled-radio-buttons-group"
@@ -193,7 +196,7 @@ export default function AdditionalInfoSection({errors, register, setValue}) {
             </Typography>
           )}
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "70%" : "49%"} my={1.5}>
           <Typography mb={1}>Did you do a GIC?</Typography>
           <RadioGroup
             name="controlled-radio-buttons-group"

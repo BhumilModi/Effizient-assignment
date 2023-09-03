@@ -1,4 +1,4 @@
-import {Stack, Typography} from "@mui/material";
+import {Stack, Typography, useMediaQuery} from "@mui/material";
 import axios from "axios";
 import React, {useState} from "react";
 import {useForm} from "react-hook-form";
@@ -12,6 +12,8 @@ import {BASE_URL} from "../constants";
 function InformationForm() {
   const nav = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+
+  const matches = useMediaQuery("(max-width:600px)");
 
   const {
     handleSubmit,
@@ -34,7 +36,7 @@ function InformationForm() {
   };
 
   return (
-    <Stack width="60%">
+    <Stack width={matches ? "90%" : "60%"}>
       {isLoading ? (
         <Loader />
       ) : (

@@ -1,7 +1,15 @@
-import {Autocomplete, Stack, TextField, Typography} from "@mui/material";
+import {
+  Autocomplete,
+  Stack,
+  TextField,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import React from "react";
 
 function PersonalInfoSection({errors, register}) {
+  const matches = useMediaQuery("(max-width:600px)");
+
   const options = [
     "Grade 12",
     "Diploma",
@@ -28,7 +36,7 @@ function PersonalInfoSection({errors, register}) {
             helperText={errors.email?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "100%" : "49%"} my={1.5}>
           <Typography mb={2}>First Name</Typography>
           <TextField
             variant="standard"
@@ -43,7 +51,7 @@ function PersonalInfoSection({errors, register}) {
             helperText={errors.firstName?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "100%" : "49%"} my={1.5}>
           <Typography mb={2}>Last Name</Typography>
           <TextField
             variant="standard"
@@ -58,7 +66,7 @@ function PersonalInfoSection({errors, register}) {
             helperText={errors.lastName?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "100%" : "49%"} my={1.5}>
           <Typography mb={2}>Age</Typography>
           <TextField
             variant="standard"
@@ -74,7 +82,7 @@ function PersonalInfoSection({errors, register}) {
             helperText={errors.age?.message}
           />
         </Stack>
-        <Stack width="49%" my={1.5}>
+        <Stack width={matches ? "100%" : "49%"} my={1.5}>
           <Typography mb={1}>Highest Level of Education</Typography>
           <Autocomplete
             options={options}

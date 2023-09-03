@@ -1,10 +1,11 @@
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import {Stack, Typography} from "@mui/material";
+import {Stack, Typography, useMediaQuery} from "@mui/material";
 import React from "react";
 
 function ThankYou() {
+  const matches = useMediaQuery("(max-width:600px)");
   return (
-    <Stack width="60%">
+    <Stack width={matches ? "95%" : "60%"}>
       <Stack
         bgcolor="#fff"
         borderRadius={5}
@@ -19,13 +20,13 @@ function ThankYou() {
         <Typography fontSize="30px" fontWeight="600">
           Thank You
         </Typography>
-        <Typography color="#000" textAlign="center">
+        <Typography color="#000" textAlign={matches ? "left" : "center"}>
           We appreciate your interest and the information you provided. <br />
           An email has been sent to the address you provided. Please check your
           inbox, including the spam folder, if you do not see it in your main
           inbox.
         </Typography>
-        <Typography color="#000" textAlign="center">
+        <Typography color="#000" textAlign={matches ? "left" : "center"}>
           If you have any further questions or need assistance, please feel free
           to contact our support team at info@effizient.ca .
         </Typography>
