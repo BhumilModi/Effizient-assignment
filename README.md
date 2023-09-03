@@ -51,5 +51,3 @@
 - To run the app and start express server use the following command - `npm run start `
 
 - After this you can see the log in the terminal were onto successful we can see the server running on port 8080.
-
-
